@@ -1,0 +1,127 @@
+/* main nav */
+.navbar {
+    height: 50px;
+    background-color: rgb(66, 2, 40);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 5rem;
+    padding-left: 5rem;
+}
+
+.list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.icon-2 {
+    font-size: 20px;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    list-style: none;
+    color: white;
+}
+
+
+/* sub nav */
+.subnav {
+    background-color: rgba(66, 2, 40, 0.186);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 5rem;
+    padding-left: 5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.navCard {
+    background-color: white;
+    width: 20%;
+    display: flex;
+    border-radius: 5px;
+
+    /* box-shadow: -4px 2px 9px 4px rgba(0, 0, 0, 0.28);
+    -webkit-box-shadow: -4px 2px 9px 4px rgba(0, 0, 0, 0.28);
+    -moz-box-shadow: -4px 2px 9px 4px rgba(0, 0, 0, 0.28); */
+
+    box-shadow: -4px 2px 9px 4px rgba(0, 0, 0, 0.14);
+    -webkit-box-shadow: -4px 2px 9px 4px rgba(0, 0, 0, 0.14);
+    -moz-box-shadow: -4px 2px 9px 4px rgba(0, 0, 0, 0.14);
+}
+
+.subnav-content-1 {
+    width: 20%;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.subnav-content-2 {
+    width: 80%;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img {
+    height: 40px;
+    width: 40px;
+}
+
+.subnav-content-txt {
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+
+.subnav-content-txt-2 {
+    color: black;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    text-align: center;
+    font-size: 2rem;
+}
+
+
+.admin-dp {
+    background-color: white;
+    margin-left: 1rem;
+    display: flex;
+    padding: 2px;
+    border-radius: 50%;
+}
+
+.admin-dp-img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+/* user sub nav */
+.user-subnav {
+    background-color: rgba(66, 2, 40, 0.186);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 5rem;
+    padding-left: 5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.user-logo {
+    display: flex;
+}
+
+.user-logo-img {
+    height: 40px;
+    width: 50px;
+}
