@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import "../../style/login.css";
 
-
 const AdminLogin = () => {
 
     const navigate = useNavigate();
@@ -10,9 +9,12 @@ const AdminLogin = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
+    const [disable, setDiasble] = useState(false);
+
     const send = async (e) => {
 
         e.preventDefault();
+        setDiasble(true);
 
         if (username) {
             if (username === 'admin@gmail.com') {
@@ -28,7 +30,8 @@ const AdminLogin = () => {
             }
 
         } else {
-            alert('Please Enter Username')
+            alert('Please Enter Username');
+            setDiasble(false);
         }
 
     };
@@ -50,7 +53,12 @@ const AdminLogin = () => {
                         value={password}
                     />
                     <div>
-                        <button className="submit" onClick={send}>Login</button>
+                        {
+                            disable ?
+                                <button className="submit" style={{ backgroundColor: '#f5619c' }}>sign in..</button>
+                                :
+                                <button className="submit" onClick={send}>Login</button>
+                        }
                     </div>
                 </div>
             </div>

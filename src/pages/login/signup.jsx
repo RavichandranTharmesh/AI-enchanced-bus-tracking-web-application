@@ -14,9 +14,13 @@ const Signup = () => {
     const [password, setPassword] = useState('');
     const [image, setImage] = useState(null);
 
+    const [disable, setDiasble] = useState(false);
+
 
     const send = async (e) => {
+
         e.preventDefault();
+        setDiasble(true)
 
         try {
 
@@ -38,12 +42,14 @@ const Signup = () => {
             const resdata = await res.data;
             console.log(resdata);
 
-            alert('Signup Successfully !')
+            alert('Signup Successfully !');
+            setDiasble(false);
             navigate('/');
 
         } catch (error) {
             console.log('Main Error', error);
-            alert('Signup Failed ! Try again')
+            alert('Signup Failed ! Try again');
+            setDiasble(false);
             window.location.reload();
         }
 
@@ -83,7 +89,13 @@ const Signup = () => {
                         onChange={(e) => setImage(e.target.files[0])}
                     />
 
-                    <button className="submit" onClick={send}>Signup</button>
+                    {
+                        disable ?
+                            <button className="submit" style={{ backgroundColor: '#f5619c' }}>wait..</button>
+                            :
+                            <button className="submit" onClick={send}>Signup</button>
+                    }
+
                 </div>
             </div>
 

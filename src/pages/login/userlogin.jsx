@@ -6,18 +6,20 @@ import signup from "../../images/signup.webp";
 import admin from "../../images/admin.png";
 import "../../style/login.css";
 
-
 const UserLogin = () => {
 
     const navigate = useNavigate();
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [disable, setDiasble] = useState(false);
 
 
     const send = async (e) => {
 
         e.preventDefault();
+        setDiasble(true);
+
 
         if (username) {
             try {
@@ -29,22 +31,30 @@ const UserLogin = () => {
                     alert('Incorrect Username')
                     window.location.reload();
                 } else {
-                    if (resdata[0] === password) {
-                        navigate('/UserHome');
+
+                    if (resdata[0].password === password) {
+
+                        const param = resdata[0].nic;
+                        navigate(`/UserHome/${param}`);
+
                     } else {
                         alert('Incorrect Password')
                         window.location.reload();
                     }
-                }
+                };
+
+                setDiasble(false);
 
             } catch (error) {
                 console.log('Main Error', error);
-                alert('Login Failed ! Try again')
+                alert('Login Failed ! Try again');
+                setDiasble(false);
             }
 
         } else {
-            alert('Please Enter Username')
-        }
+            alert('Please Enter Username');
+            setDiasble(false);
+        };
 
     }
 
@@ -64,7 +74,12 @@ const UserLogin = () => {
                         onChange={(e) => setPassword(e.target.value)}
                         value={password} />
                     <div>
-                        <button className="submit" onClick={send}>Login</button>
+                        {
+                            disable ?
+                                <button className="submit" style={{ backgroundColor: '#f5619c' }}>sign in..</button>
+                                :
+                                <button className="submit" onClick={send}>Login</button>
+                        }
                     </div>
                 </div>
 
@@ -84,6 +99,7 @@ const UserLogin = () => {
                 </div>
 
             </div>
+
         </div>
     );
 

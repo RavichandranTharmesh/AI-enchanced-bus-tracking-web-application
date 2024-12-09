@@ -1,0 +1,74 @@
+.addbus-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addbus-card {
+    margin-top: 2rem;
+    width: 30%;
+    height: 100%;
+    border-radius: 20px;
+
+    box-shadow: 1px -1px 30px 3px rgba(0, 0, 0, 0.39);
+    -webkit-box-shadow: 1px -1px 30px 3px rgba(0, 0, 0, 0.39);
+    -moz-box-shadow: 1px -1px 30px 3px rgba(0, 0, 0, 0.39);
+}
+
+.addbus-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addbus-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.assigncustomer-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.assign-submit-btn {
+    width: 100px;
+    background-color: #db045a;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 15px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.assign-submit-btn-2 {
+    width: 100px;
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 15px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.assign-submit-btn:hover {
+    background-color: #f62a7b;
+}
+
+.assign-submit-btn-2:hover {
+    background-color: rgb(8, 171, 8);
+}

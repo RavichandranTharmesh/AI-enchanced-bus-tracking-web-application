@@ -43,6 +43,7 @@
     width: 20%;
     display: flex;
     border-radius: 5px;
+    cursor: pointer;
 
     /* box-shadow: -4px 2px 9px 4px rgba(0, 0, 0, 0.28);
     -webkit-box-shadow: -4px 2px 9px 4px rgba(0, 0, 0, 0.28);
@@ -51,6 +52,10 @@
     box-shadow: -4px 2px 9px 4px rgba(0, 0, 0, 0.14);
     -webkit-box-shadow: -4px 2px 9px 4px rgba(0, 0, 0, 0.14);
     -moz-box-shadow: -4px 2px 9px 4px rgba(0, 0, 0, 0.14);
+}
+
+.navCard:hover {
+    background-color: rgba(255, 255, 255, 0.464);
 }
 
 .subnav-content-1 {
@@ -92,7 +97,7 @@
 
 .admin-dp {
     background-color: white;
-    margin-left: 1rem;
+    margin-left: 0.5rem;
     display: flex;
     padding: 2px;
     border-radius: 50%;

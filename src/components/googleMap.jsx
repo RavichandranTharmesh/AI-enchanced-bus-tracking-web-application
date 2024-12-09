@@ -1,9 +1,9 @@
-import React from 'react';
-import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
+import React, { useState, useEffect } from "react";
+import { GoogleMap, Marker, DirectionsRenderer, useJsApiLoader } from "@react-google-maps/api";
 
 const containerStyle = {
   width: '100%',
-  height: '520px'
+  height: '640px'
 };
 
 const center = {
@@ -11,24 +11,31 @@ const center = {
   lng: 79.87817314564941
 };
 
-const markers = [
-  { id: 1, position: { lat: 6.837809366680228, lng: 79.87169411691436 } },
-  { id: 2, position: { lat: 6.852126143395578, lng: 79.93005898278986 } },
-];
 
-// const mapOptions = {
-//   styles: [
-//     { featureType: 'road', stylers: [{ visibility: 'off' }] },
-//     { featureType: 'water', stylers: [{ color: '#00bfff' }] },
-//   ],
-// };
-
-
-const Gmap = () => {
+const Gmap = ({ lat }) => {
 
   const { isLoaded, loadError } = useJsApiLoader({
-    googleMapsApiKey: 'AIzaSyBreBswpZvbUua73_EwiWc0pxFJSRGlhkQ',
+    googleMapsApiKey: 'AIzaSyCtSo_iA5m4GEO_OFKCUI7JrqzXuy0WnYU',
   });
+
+  const x = 6.849795;
+  const y = 79.878797;
+
+  const [marker, setMarker] = useState({
+    lat: x,
+    lng: y
+  })
+
+  useEffect(() => {
+
+    if (lat) {
+      setMarker({
+        lat: lat,
+        lng: 79.878797
+      })
+    };
+
+  }, [lat]);
 
 
   if (loadError) return <div>Error loading Google Maps</div>;
@@ -39,13 +46,14 @@ const Gmap = () => {
     <div>
       <GoogleMap
         mapContainerStyle={containerStyle}
-        center={center}
+        center={marker}
         zoom={10}
       // options={mapOptions}
       >
-        {markers.map((marker) => (
+        {/* {markers.map((marker) => (
           <Marker key={marker.id} position={marker.position} />
-        ))}
+        ))} */}
+        <Marker position={marker} />
       </GoogleMap>
     </div>
   );

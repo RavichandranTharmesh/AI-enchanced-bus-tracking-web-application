@@ -1,7 +1,7 @@
 import bus1 from "../images/bus-1.webp";
 import "../style/navbar.css";
 
-const UserSubNav = () => {
+const UserSubNav = ({ reserveBus }) => {
 
     return (
         <div className="user-subnav">
@@ -13,7 +13,7 @@ const UserSubNav = () => {
                 <div className='subnav-content-2'>
                     <div>
                         <p className='subnav-content-txt'>RESERVED BUSES</p>
-                        <p className='subnav-content-txt-2'>2</p>
+                        <p className='subnav-content-txt-2'>{reserveBus}</p>
                     </div>
                 </div>
             </div>

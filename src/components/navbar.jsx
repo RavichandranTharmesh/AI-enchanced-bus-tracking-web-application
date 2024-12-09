@@ -29,10 +29,10 @@ const Navbar = () => {
                     <Link to='/Dashboard'>
                         <FiGrid className="icon-2" />
                     </Link>
-                    <Link to='/Dashboard'>
+                    <Link to='/AssignCustomer'>
                         <MdAddModerator className="icon-2" />
                     </Link>
-                    <Link to='/Dashboard'>
+                    <Link to='/AddBus'>
                         <BiSolidBookAdd className="icon-2" />
                     </Link>
                     <Link to='/Dashboard'>
@@ -45,6 +45,9 @@ const Navbar = () => {
                         <ImSwitch className="icon-2" />
                     </Link>
 
+                    <div style={{ marginLeft: '3rem' }}>
+                        <h5 style={{ textTransform: 'uppercase' }}>admin</h5>
+                    </div>
                     <div className='admin-dp'>
                         <img src={dp} alt="" className="admin-dp-img" />
                     </div>
