@@ -7,9 +7,9 @@ import Signup from './pages/login/signup';
 
 import Dashboard from './pages/dashboard';
 import MapScreen from './pages/map';
-
 import AddBus from './pages/addBus';
 import AssignCustomer from './pages/assignCustomer';
+import Manage from './pages/manage';
 
 import UserHome from './pages/user/userhome';
 import UserMapScreen from './pages/user/usermap';
@@ -26,9 +26,9 @@ const App = () => {
 
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/MapScreen" element={<MapScreen />} />
-
           <Route path="/AddBus" element={<AddBus />} />
           <Route path="/AssignCustomer" element={<AssignCustomer />} />
+          <Route path="/Manage" element={<Manage />} />
 
           <Route path="/UserHome/:id" element={<UserHome />} />
           <Route path="/UserMapScreen/:id" element={<UserMapScreen />} />

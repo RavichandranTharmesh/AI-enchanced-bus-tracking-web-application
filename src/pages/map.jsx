@@ -36,10 +36,11 @@ const MapScreen = () => {
 
     useEffect(() => {
         setCurrentPosition({
-            lat: 6.849795,
-            lng: 79.878797,
+            lat: passdata.lat,
+            lng: passdata.lng,
         });
     }, []);
+
 
     const reload = () => {
         const directionsService = new window.google.maps.DirectionsService();
@@ -89,7 +90,7 @@ const MapScreen = () => {
                                     <h4 style={{ padding: 0, margin: 0, textTransform: 'uppercase' }}>BUS NUMBER : {passdata.busnumber}</h4>
                                 </div>
                                 <div style={{ marginTop: '0.5rem' }}>
-                                    <h4 style={{ padding: 0, margin: 0, textTransform: 'uppercase' }}>NAME : {passdata.busname}</h4>
+                                    <h4 style={{ padding: 0, margin: 0, textTransform: 'uppercase' }}>CUSTOMER NIC : {passdata.ic}</h4>
                                 </div>
                             </div>
 
@@ -114,6 +115,15 @@ const MapScreen = () => {
                             </div>
                             <div style={{ width: '70%' }}>
                                 <label style={{ fontSize: '0.9rem', fontWeight: 'bold', color: 'darkblue' }}>{passdata.to}</label>
+                            </div>
+                        </div>
+
+                        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1rem', justifyContent: 'center' }}>
+                            <div style={{ width: '30%', display: 'flex', justifyContent: 'center' }}>
+                                <label style={{ fontSize: '0.9rem' }}>Center :</label>
+                            </div>
+                            <div style={{ width: '70%' }}>
+                                <label style={{ fontSize: '0.9rem', fontWeight: 'bold', color: 'darkblue' }}>{passdata.startplace}</label>
                             </div>
                         </div>
 

@@ -72,3 +72,18 @@
 .assign-submit-btn-2:hover {
     background-color: rgb(8, 171, 8);
 }
+
+
+.manage-card {
+    margin-top: 2rem;
+    width: 90%;
+    height: 100%;
+    border-radius: 10px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 1rem;
+
+    box-shadow: 1px -1px 30px 3px rgba(0, 0, 0, 0.39);
+    -webkit-box-shadow: 1px -1px 30px 3px rgba(0, 0, 0, 0.39);
+    -moz-box-shadow: 1px -1px 30px 3px rgba(0, 0, 0, 0.39);
+}

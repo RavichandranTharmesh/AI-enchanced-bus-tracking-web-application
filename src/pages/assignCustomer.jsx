@@ -31,50 +31,29 @@ const AssignCustomer = () => {
 
     const [ic, setIc] = useState('');
     const [busnumber, setBusnumber] = useState('');
-    const [busname, setBusname] = useState('');
+    const [startplace, setStartPlace] = useState('');
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
 
 
-    // useEffect(() => {
-    //     if (navigator.geolocation) {
-    //         navigator.geolocation.watchPosition(
-    //             (position) => {
-    //                 setCurrentPosition({
-    //                     lat: position.coords.latitude,
-    //                     lng: position.coords.longitude,
-    //                 });
-    //             },
-    //             (error) => console.error("Error getting location: ", error),
-    //             {
-    //                 enableHighAccuracy: true,
-    //                 maximumAge: 0,
-    //             }
-    //         );
-    //     } else {
-    //         alert("Geolocation is not supported by your browser.");
-    //     }
-    // }, []);
-
-
     useEffect(() => {
-        if (!navigator.geolocation) {
+        if (navigator.geolocation) {
+            navigator.geolocation.watchPosition(
+                (position) => {
+                    setCurrentPosition({
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude,
+                    });
+                },
+                (error) => console.error("Error getting location: ", error),
+                {
+                    enableHighAccuracy: true,
+                    maximumAge: 0,
+                }
+            );
+        } else {
             alert("Geolocation is not supported by your browser.");
-            return;
         }
-
-        const watchId = navigator.geolocation.watchPosition(
-            (position) => {
-                setCurrentPosition({
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude,
-                });
-            },
-            (error) => console.error("Error getting location: ", error),
-            { enableHighAccuracy: true, maximumAge: 0, timeout: 5000 }
-        );
-
-        return () => navigator.geolocation.clearWatch(watchId);
     }, []);
 
 
@@ -90,7 +69,7 @@ const AssignCustomer = () => {
             {
                 origin: fromLocation,
                 destination: toLocation,
-                travelMode: window.google.maps.TravelMode.DRIVING, // Change to WALKING, BICYCLING, or TRANSIT if needed
+                travelMode: window.google.maps.TravelMode.DRIVING,
             },
             (result, status) => {
                 if (status === window.google.maps.DirectionsStatus.OK) {
@@ -102,8 +81,10 @@ const AssignCustomer = () => {
         );
     };
 
-
     const save = async () => {
+
+        const nowdate = new Date();
+        const nowtime = nowdate.toLocaleTimeString();
 
         setDiasble(true);
 
@@ -112,7 +93,7 @@ const AssignCustomer = () => {
             const postdata = {
                 "ic": ic,
                 "busnumber": busnumber,
-                "busname": busname,
+                "startplace": startplace,
                 "from": fromLocation,
                 "to": toLocation,
                 "date": date,
@@ -127,9 +108,28 @@ const AssignCustomer = () => {
                     'Content-Type': 'application/json'
                 },
             });
-
             const resdata = await res.data;
-            console.log(resdata);
+            console.log('resdata first :', resdata);
+
+            // res - 2
+            const postdata2 = {
+                "busnumber": busnumber,
+                "date": date,
+                "time": time,
+                "lat": currentPosition.lat,
+                "lng": currentPosition.lng,
+                "lastupdate": nowtime,
+                "status": 0,
+            };
+
+            const res2 = await axios.post('http://localhost:5001/api/addlocation', postdata2, {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            });
+            const resdata2 = await res2.data;
+            console.log('resdata two :', resdata2)
+            //
 
             alert('Reserve Successfully Saved!');
             window.location.reload();
@@ -164,7 +164,7 @@ const AssignCustomer = () => {
                     </div>
 
                     <div className='addbus-input'>
-                        <input type="text" placeholder="Customer IC"
+                        <input type="text" placeholder="Customer NIC"
                             onChange={(e) => setIc(e.target.value)}
                             value={ic}
                         />
@@ -178,9 +178,9 @@ const AssignCustomer = () => {
                     </div>
 
                     <div className='addbus-input'>
-                        <input type="text" placeholder="Bus Name"
-                            onChange={(e) => setBusname(e.target.value)}
-                            value={busname}
+                        <input type="text" placeholder="Center"
+                            onChange={(e) => setStartPlace(e.target.value)}
+                            value={startplace}
                         />
                     </div>
 

@@ -45,7 +45,7 @@ class Dashboard extends Component {
                 console.log('Main Error', error);
             }
         };
-        
+
         const fetchData2 = async () => {
             try {
                 const res = await axios.get('http://localhost:5001/api/getreserve');
@@ -53,7 +53,6 @@ class Dashboard extends Component {
 
                 this.setState({
                     reserveArray: resdata,
-                    movingBus: resdata.length,
                     loading: false
                 });
 
@@ -62,8 +61,24 @@ class Dashboard extends Component {
             }
         };
 
+        const fetchData3 = async () => {
+            try {
+                const res = await axios.get('http://localhost:5001/api/getlocation');
+                const resdata = await res.data;
+
+                this.setState({
+                    movingBus: resdata.length,
+                    loading: false
+                });
+
+            } catch (error) {
+                console.log('Main Error', error);
+            }
+        }
+
         fetchData();
         fetchData2();
+        fetchData3();
     }
 
     render() {

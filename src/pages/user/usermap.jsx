@@ -46,8 +46,8 @@ const UserMapScreen = () => {
 
     useEffect(() => {
         setCurrentPosition({
-            lat: 6.849795,
-            lng: 79.878797,
+            lat: passdata.lat,
+            lng: passdata.lng,
         });
     }, []);
 
@@ -137,7 +137,7 @@ const UserMapScreen = () => {
                                 <h4 style={{ padding: 0, margin: 0, textTransform: 'uppercase' }}>BUS NUMBER : {passdata.busnumber}</h4>
                             </div>
                             <div style={{ marginTop: '0.5rem' }}>
-                                <h4 style={{ padding: 0, margin: 0, textTransform: 'uppercase' }}>NAME : {passdata.busname}</h4>
+                                <h4 style={{ padding: 0, margin: 0, textTransform: 'uppercase' }}>CENTER : {passdata.startplace}</h4>
                             </div>
                         </div>
 
