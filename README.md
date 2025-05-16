@@ -37,7 +37,6 @@ Edit
 ├── public/               # Static assets
 ├── .env                  # Environment variables
 ├── README.md             # Project documentation
-🔧 Setup Instructions
 
 
 🤖 AI/ML Functionality
