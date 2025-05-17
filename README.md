@@ -17,7 +17,7 @@ Frontend	Backend	AI & ML	Database	Cloud & APIs
 React.js	Node.js	Python (AI/ML)	MongoDB	RESTful APIs
 
 📸 Screenshots
-(Add screenshots here to showcase the UI – optional but recommended)
+
 ![Screenshot (952)](https://github.com/user-attachments/assets/f8ba8773-74ea-4e31-af7a-fda82c5ed5a3)
 ![Screenshot (950)](https://github.com/user-attachments/assets/a4875a24-b49f-4539-bd96-add6a01f5fe5)
 ![Screenshot (946)](https://github.com/user-attachments/assets/85bfe6c6-5164-45a3-ac55-85d26e5f4907)
